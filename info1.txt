@@ -1,6 +1,7 @@
 fname=input('Enter the name of the file :')
 handle=open(fname)
-bars={this is an empty dictionary}
+
+bars={}
 
 # iterating through the list
 
@@ -11,11 +12,22 @@ for line in handle :
         bars[word]=bars.get(word,0)+1
 #print(bars)
 # Bigkey is an object
+bars={}
+for line in handle :
+   
+ space=line.rstrip()
+    words=line.split()
+    
+for word in words :
+        bars[word]=bars.get(word,0)+1
+
 
 bigkey=None
 bigvalue=None
 for key,value in bars.items() :
-    if bigvalue is None or value > bigvalue :
+    if bigvalue is None or value > bigvalue :bigkey=key
+        bigvalue=value
+if bigvalue is None or value > bigvalue :
         bigkey=key
         bigvalue=value
 print(bigkey,bigvalue)
